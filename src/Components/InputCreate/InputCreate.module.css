@@ -1,0 +1,48 @@
+.input {
+    border: 1px solid rgb(32, 132, 214);
+    border-radius: 5px;
+    margin-top: 14px;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.input:focus {
+    background: #25a1db21;
+    border: solid 1px #d6e7f0;
+}
+
+.itemCheck {
+    width: 15px;
+    height: 15px;
+    border: 0.5px solid blue;
+    border-radius: 50%;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+
+.itemCheck_create {
+    display: flex;
+    align-items: center;
+}
+
+.plus {
+    padding-bottom: 1px;
+    color: blue;
+}
+
+.add_btn {
+    border-radius: 5px;
+    background: rgb(32, 132, 214);
+    color: #ffff;
+    border: 1px solid blue;
+    height: 30px;
+    width: 50px;
+}
+
+.warning{
+    color: red;
+}

@@ -1,0 +1,10 @@
+.createItem_box {
+    height: 170px;
+    justify-content: center;
+    opacity: .2;
+    text-align: center;
+}
+
+.createItem {
+    font-size: 35px;
+}

@@ -1,0 +1,107 @@
+.mapValue {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.todo_item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 93%;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  color: rgb(19, 56, 82);
+}
+
+
+.todo_item:hover .remove {
+  color: red;
+
+}
+
+.todo_item:hover {
+  box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15) !important;
+  transition: .3s cubic-bezier(0.57, 0.6, 1, 1);
+
+}
+
+.leftItem {
+  display: flex;
+  flex: 1;
+  width: 370px;
+
+}
+
+.removeBut {
+  display: flex;
+  border-radius: 50%;
+  border: 0.5px solid transparent;
+  width: 14px;
+  height: 14px;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+  transition: .4s cubic-bezier(0.91, -0.01, 1, 1);
+}
+
+.todo_item:hover .removeBut {
+  border: 0.5px solid red;
+  transform: scale(1);
+  margin-bottom: 1px;
+}
+
+
+.remove {
+  font-weight: 300;
+  font-size: 12px;
+  color: transparent;
+  padding-bottom: 3px;
+  transition: .4s cubic-bezier(0.91, -0.01, 1, 1);
+
+}
+
+.check_Btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border: 0.5px solid gray;
+  border-radius: 50%;
+  display: block;
+  cursor: pointer;
+}
+
+.checked_Btn {
+  background: grey;
+  display: flex;
+  align-items: center;
+}
+
+
+.check_Icon {
+  color: white;
+  font-size: 11px;
+}
+
+.data {
+  margin-left: 30px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: .4s ease-in-out
+}
+
+.todo_item:hover .data {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.completed {
+  font-style: italic;
+  text-decoration: line-through;
+}
