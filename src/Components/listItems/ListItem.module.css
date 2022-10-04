@@ -38,29 +38,25 @@
 
 .removeBut {
   display: flex;
-  border-radius: 50%;
-  border: 0.5px solid transparent;
+  /* border: 0.5px solid; */
   width: 14px;
   height: 14px;
   justify-content: center;
   align-items: center;
-  transform: scale(0);
-  transition: .4s cubic-bezier(0.91, -0.01, 1, 1);
 }
 
 .todo_item:hover .removeBut {
   border: 0.5px solid red;
-  transform: scale(1);
-  margin-bottom: 1px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 
 .remove {
   font-weight: 300;
-  font-size: 12px;
+  font-size: 15px;
   color: transparent;
-  padding-bottom: 3px;
-  transition: .4s cubic-bezier(0.91, -0.01, 1, 1);
+  transition: .3s cubic-bezier(0.43, 0.39, 0.67, 0.67);
 
 }
 

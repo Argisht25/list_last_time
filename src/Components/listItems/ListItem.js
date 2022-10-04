@@ -4,7 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 
-function Listitem({ todos, onChange, Removed }) {
+function Listitem({  onChange, Removed, dataRange}) {
+
+
+
     return (
         <Droppable droppableId="droppable-1" >
             {(provided, _) => (
@@ -12,7 +15,7 @@ function Listitem({ todos, onChange, Removed }) {
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                 >
-                    {todos.map((todo, i) => {
+                    {dataRange.map((todo, i) => {
                         return (
                             <div key={todo.id} >
                                 <Draggable draggableId={"draggable-" + todo.id} index={i}>
@@ -33,7 +36,7 @@ function Listitem({ todos, onChange, Removed }) {
                                             }}  >
                                                 <div className={`${it.check_Btn} ${todo.isCompleted && it.checked_Btn}`}  >
                                                     <FontAwesomeIcon className={it.check_Icon} icon={faCheck}
-                                                        {...provided.draggableProps}
+                                                    {...provided.draggableProps}
                                                     />
                                                 </div>
                                                 <div className={`${it.status} ${todo.isCompleted && it.completed}`} >
@@ -47,7 +50,7 @@ function Listitem({ todos, onChange, Removed }) {
                                                 Removed(todo.id)
                                             }
                                             }>
-                                                <p className={it.remove} >x</p>
+                                                <div className={it.remove} >&times;</div>
                                             </div>
                                         </div>
                                     )}

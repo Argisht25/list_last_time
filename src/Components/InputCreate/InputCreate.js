@@ -28,10 +28,16 @@ export default function InputCreate({ editMode, setValue, setEditMode, value, Ke
                 </div>
                     :
                     <div className={ap.itemCheck_create}>
-                        <div className={ap.itemCheck}><span className={ap.plus} onClick={() => {
-                            setEditMode(true)
-                        }}>+</span></div>
-                        <p>Create New Item</p>
+                        <div className={ap.itemCheck}>
+                            <div className={ap.plus} onClick={() => {
+                                setEditMode(true)
+                            }}>
+                                &times;
+                            </div>
+                        </div>
+                            <p className={ap.creatItem} onClick={() => {
+                                setEditMode(true)
+                            }}>Create New Item</p>
                     </div>
             }
         </div>

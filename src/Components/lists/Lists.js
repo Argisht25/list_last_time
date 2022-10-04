@@ -6,7 +6,7 @@ import Listitem from '../listItems/ListItem'
 import ap from './lists.module.css'
 
 
-export default function Lists({ dateValue, todos, Removed, setTodos, editMode, value, setValue, Add, setEditMode, inProgress, completed }) {
+export default function Lists({  todos, Removed, setTodos, editMode, value, setValue, Add, setEditMode, inProgress, completed, startDate, endDate }) {
 
 
     const [warning, setWarning] = React.useState(false)
@@ -22,16 +22,18 @@ export default function Lists({ dateValue, todos, Removed, setTodos, editMode, v
 
 
 
-    const dataRange = dateValue
+    const dataRange = todos
         ?
         todos.filter((todo) => {
-
-            return todo.currentTime === dateValue
+            // console.log(todos)
+       
+            // return todo.currentTime >= startDate && todo.currentTime <= endDate
+            return todo.currentTime
         })
         : todos
 
 
-
+console.log(startDate)
 
 
     return (
@@ -59,7 +61,8 @@ export default function Lists({ dateValue, todos, Removed, setTodos, editMode, v
                             <Route path='' element={
                                 <>
                                     <Listitem
-                                        todos={dataRange}
+                                        dataRange={dataRange}
+                                        startDate={startDate}
                                         Removed={Removed}
                                         onChange={(newTodo) => {
                                             setTodos(todos.map((todo) => {

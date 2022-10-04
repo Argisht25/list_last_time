@@ -4,9 +4,14 @@ import 'react-calendar/dist/Calendar.css';
 import ChooseType from './Components/chooseType/Choosetype';
 import Lists from './Components/lists/Lists';
 import { DragDropContext } from 'react-beautiful-dnd';
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'
 
 function App() {
+
+    const [startDate, setStartDate] = useState(new Date())
+    const [endDate, setEndDate] = useState(new Date())
+
 
     const todoItem = JSON.parse(localStorage.getItem("todo")) ||
         [
@@ -45,6 +50,7 @@ function App() {
 
     const [visibleCalendar, setVisibleCalendar] = useState(false)
 
+
     const [dateValue, setDateValue] = useState()
 
 
@@ -71,8 +77,7 @@ function App() {
                     id: Math.floor(Math.random() * 1000),
                     text: value,
                     isCompleted: false,
-                    currentTime: todoDate()
-
+                    currentTime: new Date().toLocaleDateString()
                 }
             ]),
             setValue(""),
@@ -83,19 +88,19 @@ function App() {
 
     function todoDate() {
         const today = new Date()
-        let year = today.getFullYear() // 2022
-        let Month = today.getMonth() + 1 // 9
-        let day = today.getDate() // 13
+        let year = today.getFullYear()
+        let Month = today.getMonth() + 1
+        let day = today.getDate()
         if (Month < 10) {
             Month = "-0" + Month
         } else {
-             Month = "-"  + Month
-        } if(day < 10){
-             day = "-0" + day
-        }else{
-              day =  "-" + day
+            Month = "-" + Month
+        } if (day < 10) {
+            day = "-0" + day
+        } else {
+            day = "-" + day
         }
-       return  year + Month + day
+        return year + Month + day
     }
 
 
@@ -143,13 +148,26 @@ function App() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [todos])
 
-
+    // console.log(startDate)
+    // console.log(endDate)
 
     let today = new Date()
     let day = today.getDate()
 
+
+
+    const dataRange = todos
+        ?
+        todos.filter((date) => {
+          console.log(date.currentTime >= startDate || date.currentTime <= endDate) 
+
+        })
+        : todos
+
+
     return (
         <div className='todo' tabIndex={0} onKeyDown={KeyDown} >
+            {/* <button onClick={fun} >aaaaaaaaaaa</button> */}
             <div className='container'>
                 <div className='wrapper'>
                     <DragDropContext onDragEnd={(param) => {
@@ -164,13 +182,7 @@ function App() {
                                     <div className='iconBox' >
                                         {visibleCalendar &&
                                             <div className='data_range'>
-                                                <input type="date" onChange={(event) => {
-                                                    const data = event.target.value
-                                                    setDateValue(data)
-                                                    todos.filter((todo) => {
-                                                        return todo.currentTime
-                                                    })
-                                                }} />
+                                   <input type="date" value={value} onChange={(e)=>(setDateValue(e.target.value))} />
                                             </div>
                                         }
 
@@ -193,13 +205,15 @@ function App() {
                                     todos={todos}
                                     setCompleted={setCompleted}
                                     setInProgress={setInProgress}
-                                    setDateValue={setDateValue}
+                                    // setDateValue={setDateValue}
                                     setVisibleCalendar={setVisibleCalendar}
                                 />
                             </div>
 
                             <Lists
-                                dateValue={dateValue}
+                                startDate={startDate}
+                                endDate={endDate}
+                                // dateValue={dateValue}
                                 inProgress={inProgress}
                                 completed={completed}
                                 todos={todos}

@@ -29,10 +29,6 @@
     align-items: center;
 }
 
-.plus {
-    padding-bottom: 1px;
-    color: blue;
-}
 
 .add_btn {
     border-radius: 5px;
@@ -43,6 +39,18 @@
     width: 50px;
 }
 
-.warning{
+.warning {
     color: red;
+}
+
+.plus {
+    display: flex;
+    position: relative;
+    padding-bottom: 1px;
+    color: blue;
+    rotate: 45deg;
+}
+
+.creatItem {
+    cursor: pointer;
 }

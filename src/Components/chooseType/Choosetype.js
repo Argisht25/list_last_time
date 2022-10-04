@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './ChooseType.css'
 import { NavLink } from 'react-router-dom'
 
-export default function ChooseType({ setVisibleCalendar, setTodos, todos, Completed, InProgress, setDateValue }) {
+export default function ChooseType({ setVisibleCalendar, setTodos, todos, Completed, InProgress}) {
 
     const [editMode, setEditMode] = useState(false)
 
@@ -40,7 +40,6 @@ export default function ChooseType({ setVisibleCalendar, setTodos, todos, Comple
                         <div className='command_box'>
                             <NavLink to="" onClick={() => {
                                 setEditMode(false)
-                                setDateValue("")
                                 setVisibleCalendar(false)
                             }}>All Todos</NavLink>
                             <span />
@@ -48,7 +47,7 @@ export default function ChooseType({ setVisibleCalendar, setTodos, todos, Comple
                             <span />
                             <NavLink to="inProgress" onClick={showInProgress}>in Progress</NavLink>
                             <span />
-                            <NavLink to="" onClick={Removed}>Remaove</NavLink>
+                            <NavLink to="" onClick={Removed}>Remove</NavLink>
                         </div>
                     </div>
                 </div>
